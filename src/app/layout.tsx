@@ -25,6 +25,9 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  // Base per gli indirizzi dei metadati (anteprime social, canonical):
+  // senza, Next li scrive relativi e fuori dal sito non risolvono.
+  metadataBase: new URL(site.url),
   title: {
     default: `${site.name} · ${site.tagline}`,
     template: `%s · ${site.name}`,

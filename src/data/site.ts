@@ -7,6 +7,12 @@ export type NavLink = {
 
 export const site = {
   name: "L'Amalfitana",
+  /** Il dominio definitivo, senza barra finale: lo usano la sitemap, il
+      robots.txt e i metadati per scrivere indirizzi assoluti. In anteprima
+      si cambia con NEXT_PUBLIC_SITE_URL. */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    "https://www.pizzeriadasportolamalfitana.com",
   tagline: "Traditional Gourmet · Costiera Amalfitana",
   description:
     "L’Amalfitana, pizzeria d’asporto a Flero (BS): impasti con biga di 24 ore, sette impasti a scelta, pizze classiche, speciali e gourmet.",
