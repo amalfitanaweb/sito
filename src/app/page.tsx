@@ -2,7 +2,6 @@ import ChapterDivider from "@/components/ChapterDivider";
 import Hero from "@/components/Hero";
 import HomeStage from "@/components/HomeStage";
 import MenuWave from "@/components/MenuWave";
-import ReviewsSection from "@/components/ReviewsSection";
 import s from "./home.module.css";
 
 export default function Home() {
@@ -22,8 +21,9 @@ export default function Home() {
         {/* Il menu: l'onda di foto con le liste di fianco */}
         <MenuWave />
 
-        {/* Recensioni Google */}
-        <ReviewsSection />
+        {/* Recensioni Google: nascoste per ora. Componente e dati restano in
+            components/ReviewsSection.tsx e data/reviews.ts; per rimetterle
+            basta reimportare il componente e renderizzarlo qui. */}
       </div>
     </>
   );

@@ -706,7 +706,12 @@ export const menuSections: MenuSection[] = [
       { name: "Birra Moretti Baffo d’Oro", description: "33 cl", price: 2.5 },
       { name: "Birra Moretti IPA Ale", description: "33 cl", price: 3 },
       { name: "Birra Moretti Gran Cru", description: "750 cl", price: 8 },
-      { name: "Ichnusa, Messina, Paulaner Weisbier", price: 4 },
+      { name: "Ichnusa Non Filtrata", description: "50 cl", price: 4 },
+      {
+        name: "Birre artigianali Riversa",
+        description: "50 cl · Blanche, Lager Hell, Pale Ale, Pils, Doppelbock",
+        price: 5,
+      },
       { name: "Birra senza glutine", description: "33 cl", price: 3 },
       { name: "Birra analcolica", description: "33 cl", price: 3 },
     ],
