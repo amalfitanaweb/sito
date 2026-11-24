@@ -31,6 +31,15 @@ export const site = {
   orderPhone: "+39 030 2761868",
   orderPhoneHref: "tel:+390302761868",
   email: "pizzerialamalfitana@yahoo.it",
+  // Privacy e cookie policy stanno su iubenda: nel footer si aprono in un
+  // popup sopra la pagina (iubenda.js, caricato nel layout).
+  iubenda: {
+    widget:
+      "https://embeds.iubenda.com/widgets/5c0a5014-79dd-4f9c-9681-15984db29cfe.js",
+    privacyPolicy: "https://www.iubenda.com/privacy-policy/11911459",
+    cookiePolicy:
+      "https://www.iubenda.com/privacy-policy/11911459/cookie-policy",
+  },
   // Pranzo solo venerdì e sabato: il sito attuale ha anche una frase che lo
   // dà da martedì a domenica, ma il riquadro orari (ripetuto su più pagine)
   // dice così.

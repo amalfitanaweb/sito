@@ -16,18 +16,34 @@ type FooterLink = {
   href: string;
   external?: boolean;
   disabled?: boolean;
+  /** Documento iubenda: si apre in un popup sopra la pagina. */
+  iubenda?: boolean;
 };
 
+// Le classi che iubenda.js cerca per aprire il documento in un popup:
+// "iubenda-nostyle no-brand" lo lascia un link come gli altri, senza il
+// bottone e il marchio di iubenda.
+const IUBENDA_POPUP = "iubenda-nostyle no-brand iubenda-noiframe iubenda-embed";
+
 // Quattro liste di link sotto alle colonne incorniciate.
-// Le pagine legali sono da creare: i link puntano ai percorsi previsti.
+// Privacy e cookie policy stanno su iubenda; i termini e condizioni sono
+// l'informativa dell'app per gli ordini, pagina del sito.
 const columns: { title: string; links: FooterLink[] }[] = [
   { title: "Esplora", links: site.nav },
   {
     title: "Legale",
     links: [
-      { label: "Privacy Policy", href: "/privacy-policy" },
+      {
+        label: "Privacy Policy",
+        href: site.iubenda.privacyPolicy,
+        iubenda: true,
+      },
       { label: "Termini e condizioni", href: "/termini-e-condizioni" },
-      { label: "Cookie Policy", href: "/cookie-policy" },
+      {
+        label: "Cookie Policy",
+        href: site.iubenda.cookiePolicy,
+        iubenda: true,
+      },
     ],
   },
   {
@@ -151,6 +167,16 @@ export default function Footer() {
                   {link.disabled ? (
                     // Pagina ancora da fare: la voce resta, senza link
                     <span className={s.off}>{link.label}</span>
+                  ) : link.iubenda ? (
+                    // Senza JavaScript (o prima che iubenda.js arrivi) resta
+                    // un normale link alla pagina di iubenda
+                    <a
+                      href={link.href}
+                      className={IUBENDA_POPUP}
+                      title={link.label}
+                    >
+                      {link.label}
+                    </a>
                   ) : link.external ? (
                     <a
                       href={link.href}

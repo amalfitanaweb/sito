@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import Script from "next/script";
 import { Montserrat } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -54,6 +55,26 @@ export default function RootLayout({
           <main>{children}</main>
           <Footer />
         </SmoothScroll>
+
+        {/* iubenda, privacy controls e cookie solution: banner del consenso
+            e blocco dei cookie prima del consenso.
+
+            afterInteractive e non beforeInteractive: il blocco automatico
+            passa in rassegna script, immagini e video e ci aggiunge degli
+            attributi suoi (data-cmp-info, data-cmp-ab). Se lo fa prima che
+            React si agganci alla pagina, React trova un HTML diverso da
+            quello del server e segnala un errore di hydration. Così parte
+            subito dopo, e da lì tiene d'occhio tutto quello che entra nella
+            pagina.
+
+            Se un giorno si aggiungono script di terzi (statistiche, pixel),
+            vanno messi dopo questo Script, mai prima. */}
+        <Script src={site.iubenda.widget} strategy="afterInteractive" />
+
+        {/* Apre privacy e cookie policy in un popup: cerca nella pagina i
+            link con la classe "iubenda-embed" (nel footer). Non serve
+            subito, quindi a pagina caricata, come nel codice di iubenda. */}
+        <Script src="https://cdn.iubenda.com/iubenda.js" strategy="lazyOnload" />
       </body>
     </html>
   );
