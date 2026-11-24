@@ -8,10 +8,10 @@ import { site } from "@/data/site";
    si rimette mano a una pagina, altrimenti dice il falso e Google smette di
    darle peso. */
 const PAGINE = [
-  { path: "/", lastModified: "2026-09-24", changeFrequency: "monthly", priority: 1 },
+  { path: "/", lastModified: "2026-11-13", changeFrequency: "monthly", priority: 1 },
   {
     path: "/menu",
-    lastModified: "2026-09-28",
+    lastModified: "2026-11-13",
     changeFrequency: "monthly",
     priority: 0.9,
   },
@@ -32,6 +32,12 @@ const PAGINE = [
     lastModified: "2026-09-24",
     changeFrequency: "yearly",
     priority: 0.6,
+  },
+  {
+    path: "/termini-e-condizioni",
+    lastModified: "2026-11-24",
+    changeFrequency: "yearly",
+    priority: 0.3,
   },
 ] as const;
 

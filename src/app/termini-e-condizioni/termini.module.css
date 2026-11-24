@@ -1,0 +1,293 @@
+/* Termini e condizioni per l'ordine: un testo legale lungo. Titolo in alto,
+   poi l'indice in una colonna stretta a sinistra (ferma mentre si legge) e
+   il testo a destra, a una misura comoda. Stesso impianto dei contatti. */
+
+.page {
+  padding-block: calc(var(--header-h) + clamp(3rem, 8vw, 7rem))
+    clamp(5rem, 12vw, 10rem);
+  background: var(--cream-2);
+}
+
+.head,
+.inner {
+  width: 100%;
+  max-width: var(--max-w);
+  margin-inline: auto;
+  padding-inline: var(--pad-x);
+}
+
+/* ---------- Titolo ---------- */
+
+.head {
+  display: grid;
+  gap: 1.2rem;
+  margin-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.title {
+  max-width: 14ch;
+  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+  line-height: 1.05;
+  text-wrap: balance;
+}
+
+.sub {
+  max-width: 48ch;
+  font-size: clamp(1.02rem, 1.4vw, 1.15rem);
+  line-height: 1.55;
+  color: var(--muted);
+}
+
+.label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Indice ---------- */
+
+.inner {
+  display: grid;
+  grid-template-columns: minmax(0, 15rem) minmax(0, 1fr);
+  gap: clamp(2.5rem, 7vw, 7rem);
+  align-items: start;
+}
+
+.toc {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+  display: grid;
+  gap: 1rem;
+}
+
+.toc ol {
+  display: grid;
+  gap: 0.15rem;
+  border-left: 1px solid var(--line);
+}
+
+.toc a {
+  display: block;
+  padding: 0.35rem 0 0.35rem 1rem;
+  margin-left: -1px;
+  border-left: 1px solid transparent;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: var(--muted);
+  transition:
+    color 0.3s,
+    border-color 0.3s;
+}
+
+.toc a:hover,
+.toc a:focus-visible {
+  color: var(--ink);
+  border-left-color: var(--ink);
+}
+
+/* ---------- Testo ---------- */
+
+.body {
+  max-width: 72ch;
+  line-height: 1.75;
+}
+
+.body p + p,
+.body p + .elenco,
+.body .elenco + p {
+  margin-top: 1.1em;
+}
+
+/* Link nel testo: sottolineati, e gli indirizzi lunghi vanno a capo
+   invece di allargare la pagina sui telefoni */
+.body a {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  overflow-wrap: anywhere;
+}
+
+.section {
+  scroll-margin-top: calc(var(--header-h) + 2rem);
+}
+
+.section + .section {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(3rem, 6vw, 4.5rem);
+  border-top: 1px solid var(--line);
+}
+
+.section h2 {
+  margin-bottom: 1.4rem;
+  font-size: clamp(1.45rem, 2.3vw, 1.95rem);
+  line-height: 1.18;
+  text-wrap: balance;
+}
+
+.section h3 {
+  margin: 2.2rem 0 0.8rem;
+  font-size: clamp(1.15rem, 1.7vw, 1.35rem);
+  line-height: 1.25;
+}
+
+.stacco {
+  margin-top: 2.2rem;
+}
+
+/* Elenchi puntati: un trattino al posto del pallino */
+.elenco {
+  display: grid;
+  gap: 0.55em;
+}
+
+.elenco li {
+  position: relative;
+  padding-left: 1.5em;
+}
+
+.elenco li::before {
+  content: "";
+  position: absolute;
+  top: 0.87em;
+  left: 0;
+  width: 0.7em;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+/* Richiamo alle note */
+.rif {
+  font-size: 0.68em;
+  line-height: 0;
+}
+
+.rif a {
+  display: inline-block;
+  padding: 0 0.2em;
+  font-weight: 600;
+  text-decoration: none;
+  scroll-margin-top: calc(var(--header-h) + 6rem);
+}
+
+.rif a:hover {
+  text-decoration: underline;
+}
+
+/* ---------- Categorie di dati: schede con le righe etichetta / valore ---------- */
+
+.categoria {
+  margin-top: 2.2rem;
+  padding: clamp(1.25rem, 3.4vw, 2.2rem);
+  border-radius: var(--radius);
+  background: var(--cream);
+}
+
+.categoria .label {
+  margin-bottom: 0.45rem;
+}
+
+.section .categoria h3 {
+  margin: 0 0 1.4rem;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+}
+
+.finalita {
+  margin-top: 1.8rem;
+}
+
+/* Font dei paragrafi: l'"1" del Didot sembra una "i" ("Finalità ı") */
+.finalita h4 {
+  margin-bottom: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.righe {
+  display: grid;
+}
+
+.riga {
+  display: grid;
+  grid-template-columns: minmax(0, 13rem) minmax(0, 1fr);
+  gap: 0.4rem 1.8rem;
+  padding-block: 0.95rem;
+  border-top: 1px solid var(--line);
+}
+
+.riga dt {
+  padding-top: 0.25em;
+  font-size: 0.7rem;
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.riga dd {
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* ---------- Note ---------- */
+
+.note ol {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.note li {
+  display: grid;
+  grid-template-columns: 2rem minmax(0, 1fr);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  scroll-margin-top: calc(var(--header-h) + 2rem);
+}
+
+.numero {
+  font-weight: 700;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.torna {
+  display: inline-block;
+  margin-left: 0.4em;
+  padding: 0 0.3em;
+  font-weight: 600;
+}
+
+.body .torna {
+  text-decoration: none;
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  /* Sul telefono l'indice sta in cima, senza restare fermo */
+  .toc {
+    position: relative;
+    top: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .riga {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .riga dt {
+    padding-top: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toc a {
+    transition: none;
+  }
+}
